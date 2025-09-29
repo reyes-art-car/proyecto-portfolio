@@ -1,0 +1,192 @@
+:root{
+  --bg: #0a0a1a;          /* fondo base más profundo añil */
+  --panel: #141433;       /* panel principal violeta oscuro */
+  --panel-2: #1b1b3d;     /* panel secundario */
+  --text: #f5f5ff;        /* texto blanco con matiz frío */
+  --muted: #b5b5d6;       /* gris violáceo */
+  --accent: #7b5cff;      /* acento violeta */
+  --accent-2: #4dd0ff;    /* acento turquesa */
+  --border: #2a2a50;      /* borde en violeta grisáceo */
+}
+
+*{ box-sizing: border-box }
+
+/* Fondo: imagen + gradientes en añil/violeta */
+body{
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(123,92,255,.25) 0%, transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, rgba(77,208,255,.20) 0%, transparent 60%),
+    url("mujeralaguitarra.jpg") no-repeat center center / cover,
+    var(--bg);
+  background-attachment: fixed;
+  font-family: Inter, sans-serif;
+}
+
+/* ---------- Portadas cuadradas tipo playlist (overlay al hover) ---------- */
+.cover-wrapper{ position:relative; width:300px; height:300px }
+.cover-img{
+  width:100%; height:100%; object-fit:cover; border-radius:12px; display:block
+}
+.cover-overlay{
+  position:absolute; inset:0;
+  background: rgba(0,0,0,0.8);
+  color:#fff; padding:20px; opacity:0; transition:opacity .3s ease;
+  overflow-y:auto; border-radius:12px;
+}
+.cover-wrapper:hover .cover-overlay{ opacity:1 }
+.cover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.cover-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ------------------------- Layout principal ------------------------- */
+.sidebar{
+  position:fixed; inset:0 auto 0 0; width:240px;
+  background: linear-gradient(180deg, #1a1a3a, #0a0a1a 80%);
+  border-right:1px solid var(--border); padding:18px;
+}
+.logo-float{
+  float:left; padding:.6rem .9rem; border-radius:10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#fff; font-weight:800; border:1px solid rgba(255,255,255,.1);
+  margin-bottom:16px;
+}
+.nav{ clear:both }
+.nav ul{ list-style:none; padding:0; margin:10px 0 0 }
+.nav li{ margin:10px 0 }
+.nav a{
+  display:block; padding:10px 12px; color:var(--text); text-decoration:none;
+  border-radius:8px; transition:background .3s, color .3s;
+}
+.nav a:hover{ background:rgba(123,92,255,.25); color:var(--accent-2) }
+
+.viewport{
+  margin-left:240px; min-height:100vh; display:flex; flex-direction:column;
+}
+
+/* --------------------------- Topbar --------------------------- */
+.topbar{
+  display:flex; align-items:center; gap:16px;
+  background: var(--panel); border-bottom:1px solid var(--border);
+  padding:12px 20px;
+}
+.chevrons .chev{
+  background:#222255; color:var(--text);
+  border:1px solid var(--border); border-radius:8px;
+  padding:6px 10px; cursor:pointer;
+}
+.search{ flex:1 }
+.search input{
+  width:100%; background:#222255; color:var(--text);
+  border:1px solid var(--border); padding:10px 14px; border-radius:10px; outline:none;
+}
+.search input:focus{
+  border-color:var(--accent); box-shadow:0 0 0 3px rgba(123,92,255,.25)
+}
+.profile{ color:var(--muted) }
+
+/* --------------------------- Contenido --------------------------- */
+.content{ padding:20px; flex:1 }
+.card{
+  background: var(--panel-2); border:1px solid var(--border);
+  border-radius:12px; padding:18px; margin:18px 0;
+  box-shadow:0 0 12px rgba(123,92,255,.15);
+}
+.card h2{ margin:0 0 12px; font-weight:800; letter-spacing:.3px }
+.section-head{ display:flex; align-items:center; justify-content:space-between }
+.pill{
+  background:#1f1f4a; color:var(--text);
+  border:1px solid var(--border); padding:8px 12px; border-radius:999px; text-decoration:none;
+}
+.pill:hover{ color:var(--accent-2) }
+.muted{ color:var(--muted) }
+
+/* ------------------- Tabla de proyectos (lista TIDAL) ------------------- */
+.table-wrapper{
+  background:#101030; border:1px solid var(--border);
+  border-radius:10px; overflow:auto;
+}
+.projects-table{
+  width:100%; border-collapse:collapse; min-width:660px;
+}
+.projects-table caption{
+  text-align:left; padding:10px 12px; color:var(--muted); font-size:.95rem;
+}
+.projects-table th, .projects-table td{
+  padding:14px 12px; border-bottom:1px solid var(--border); text-align:left;
+}
+.projects-table thead th{
+  font-size:.85rem; text-transform:uppercase; letter-spacing:.08em;
+  color:#d8d8ff; background:#141444;
+}
+.projects-table tbody tr{ transition: background .2s ease }
+.projects-table tbody tr:hover{ background: rgba(123,92,255,.15) }
+.projects-table a.play{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 12px; border-radius:999px; text-decoration:none;
+  background:#1f1f4a; border:1px solid var(--border); color:var(--text);
+}
+.projects-table a.play::before{ content:"▶"; color:var(--accent-2) }
+
+/* ----------------------------- Formulario ----------------------------- */
+.contact-form{ max-width:720px }
+.form-row{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px }
+.form-row label{ font-weight:700; color:#e7e7ff }
+.form-row input[type="text"],
+.form-row input[type="email"]{
+  background:#0d0d2a; border:1px solid var(--border);
+  color:var(--text); padding:12px 14px; border-radius:10px; outline:none;
+}
+.form-row input:focus{
+  border-color:var(--accent); box-shadow:0 0 0 3px rgba(123,92,255,.25)
+}
+.checkbox-row{ flex-direction:row; align-items:center; gap:10px }
+.checkbox-row input{ accent-color: var(--accent) }
+
+.btn{
+  display:inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#fff; border:none; padding:.85rem 1.1rem; font-weight:800;
+  border-radius:999px; cursor:pointer; transition: filter .2s;
+}
+.btn:hover{ filter:brightness(1.15) }
+.btn:active{ transform: translateY(1px) }
+
+/* ------------------------ Footer estilo player ------------------------ */
+.player{
+  position:sticky; bottom:0;
+  background:#141433; border-top:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between; padding:12px 20px;
+}
+.track-info{ display:flex; align-items:center; gap:10px }
+.thumb{
+  width:44px; height:44px; border-radius:6px;
+  background:linear-gradient(135deg, #2a2a6b, #7b5cff55); border:1px solid var(--border)
+}
+.track{ margin:0 } .artist{ margin:0 }
+.controls button{
+  background:none; border:none; color:var(--text); font-size:1.1rem; margin:0 8px; cursor:pointer;
+}
+.controls button:hover{ color:var(--accent-2) }
+
+/* ------------------------------ Responsive ------------------------------ */
+@media (max-width: 860px){
+  .sidebar{ width:200px }
+  .viewport{ margin-left:200px }
+}
+@media (max-width: 680px){
+  .sidebar{ position:static; width:auto; height:auto }
+  .viewport{ margin-left:0 }
+  .topbar{ flex-wrap:wrap }
+  .projects-table{ min-width:540px }
+}

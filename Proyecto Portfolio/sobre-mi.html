@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Sobre mí - MRAC Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tidal-theme">
+
+  <!-- Sidebar fija -->
+  <aside class="sidebar">
+    <div class="logo-float">MRAC</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="viewport">
+    <header class="topbar" id="inicio" role="banner">
+      <div class="Nombre">
+        <h1>Maria Reyes Artacho Carrero</h1>
+      </div>
+    </header>
+
+    <main class="content">
+      <p>
+          Soy una profesional con formación en Educación y Lenguas y actualmente en transición hacia la tecnología.
+        Cuento con un Grado en Educación Primaria y un Máster en Enseñanza de Inglés (C1). 
+        Actualmente curso el segundo año de DAW y me especializo en experiencias accesibles y contenido claro. 
+        Mi objetivo es ser UX Writer o Content Designer técnico.
+      </p>
+      <a href="index.html" class="btn">Volver al inicio</a>
+    </main>
+
+    <footer class="player">
+      <p class="track">© <span id="year"></span> MRAC Portfolio</p>
+    </footer>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
