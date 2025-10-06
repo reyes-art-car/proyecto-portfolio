@@ -37,9 +37,6 @@ El prototipado está realizado en Figma y se puede ver en el siguiente enlace ht
 │
 └── assets/ # Otras imágenes (backgrounds, íconos opcionales)
 
-yaml
-Copiar código
-
 ---
 
 ## 🖼️ Estilo visual
