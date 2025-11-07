@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MRAC Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Portfolio con estética tipo TIDAL: sobre mí, proyectos y contacto.">
+</head>
+<body class="tidal-theme">
+
+  <!-- Sidebar fija -->
+  <aside class="sidebar" role="navigation" aria-label="Navegación principal">
+    <div class="logo-float" title="MRAC">MRAC</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="viewport">
+    <!-- Topbar -->
+    <header class="topbar" id="inicio" role="banner">
+      <div class="Nombre">
+        <h1>Maria Reyes Artacho Carrero</h1>
+      </div>
+    </header>
+
+    <main class="content" role="main">
+      <!-- Sobre mí -->
+      <main class="content" role="main">
+
+  <!-- Rejilla de portadas -->
+  <section class="cover-grid">
+    <!-- Sobre mí -->
+    <a href="sobre-mi.html" class="cover-card">
+      <div class="cover-wrapper">
+        <img src="cover_sobre_mi.png" alt="Cover Sobre mí" class="cover-img">
+        <div class="cover-overlay">
+          <h2>Sobre mí</h2>
+        </div>
+      </div>
+    </a>
+
+    <!-- Proyectos -->
+    <a href="proyectos.html" class="cover-card">
+      <div class="cover-wrapper">
+        <img src="cover_proyectos.png" alt="Cover Proyectos" class="cover-img">
+        <div class="cover-overlay">
+          <h2>Proyectos</h2>
+        </div>
+      </div>
+    </a>
+
+    <!-- Contacto -->
+    <a href="contacto.html" class="cover-card">
+      <div class="cover-wrapper">
+        <img src="cover_contacto.png" alt="Cover Contacto" class="cover-img">
+        <div class="cover-overlay">
+          <h2>Contacto</h2>
+        </div>
+      </div>
+    </a>
+  </section>
+
+</main>
+
+
+      <!-- Proyectos como TABLA -->
+      
+
+      <!-- Contacto con checkbox -->
+     
+    </main>
+
+    <!-- Pie estilo player minimal -->
+<footer class="player" role="contentinfo">
+  <div class="track-info">
+    <div class="thumb" aria-hidden="true"></div>
+    <div>
+      <p class="track">MRAC Portfolio</p>
+      <p class="artist muted">© <span id="year"></span> · Todos los derechos reservados</p>
+    </div>
+  </div>
+
+  <!-- Controles como botones de navegación -->
+  <div class="controls">
+    <a href="index.html" class="control-btn" title="Inicio">⏮</a>
+    <a href="sobre-mi.html" class="control-btn" title="Sobre mí">▶</a>
+    <a href="proyectos.html" class="control-btn" title="Proyectos">⏭</a>
+    <a href="contacto.html" class="control-btn" title="Contacto">🎵</a>
+  </div>
+
+  <div class="extras">
+    <span>🔊</span>
+  </div>
+</footer>
+
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

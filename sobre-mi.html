@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Sobre mí - MRAC Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tidal-theme">
+
+  <!-- Sidebar fija -->
+  <aside class="sidebar">
+    <div class="logo-float">MRAC</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="viewport">
+    <header class="topbar" id="inicio" role="banner">
+      <div class="Nombre">
+        <h1>Maria Reyes Artacho Carrero</h1>
+      </div>
+    </header>
+
+    <main class="content">
+      <p>
+        ¡Hola! Soy Maria Reyes Artacho Carrero, una estudiante de desarrollo web que desea convertirse en backend developer. Estoy especialmente interesada en la lógica de programación y el desarrollo de APIs.
+        En cuanto a mi perfil personal, me considero una persona curiosa, con gran capacidad de adaptación y siempre dispuesta a aprender cosas nuevas. Me encanta enfrentarme a nuevos retos y encontrar soluciones creativas a los problemas.
+        En mi portafolio encontrarás una selección de mis proyectos más destacados. ¡Gracias por visitar mi sitio!
+      </p>
+      <p class="muted">Tecnologías: HTML, CSS, JavaScript, Java/Spring Boot, SQL y Git.</p>
+      <a href="index.html" class="btn">Volver al inicio</a>
+    </main>
+
+    <footer class="player">
+      <p class="track">© <span id="year"></span> MRAC Portfolio</p>
+    </footer>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
