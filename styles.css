@@ -190,3 +190,68 @@ body{
   .topbar{ flex-wrap:wrap }
   .projects-table{ min-width:540px }
 }
+/* === Formación & Certificaciones === */
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.cert-card {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(123,92,255,.2);
+}
+
+.cert-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.cert-card h3 {
+  margin: 6px 0 4px;
+  color: var(--accent-2);
+  font-size: 1rem;
+}
+
+/* Tech stack pills */
+
+.tech-stack { margin-top: 24px; }
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tech-list li {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+/* Botones del player como navegación */
+
+.control-btn {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.control-btn:hover {
+  color: var(--accent-2);
+}
