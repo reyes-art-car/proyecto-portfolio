@@ -1,33 +1,51 @@
 :root {
-  --bg: #0a0a1a;          /* fondo base añil oscuro */
-  --panel: #141433;       /* panel principal */
-  --panel-2: #1b1b3d;     /* panel secundario */
-  --text: #f5f5ff;        /* texto principal */
-  --muted: #b5b5d6;       /* texto suavizado */
-  --accent: #7b5cff;      /* violeta acento */
-  --accent-2: #4dd0ff;    /* turquesa acento */
-  --border: #2a2a50;      /* bordes */
+  /* Fondo y paneles */
+  --bg: #050819;              /* azul casi negro */
+  --panel: #111433;           /* panel principal */
+  --panel-2: #181a3f;         /* panel secundario */
+
+  /* Texto */
+  --text: #f5f5ff;
+  --muted: #b7c1e6;
+
+  /* Acentos principales (moodboard) */
+  --accent: #7b5cff;          /* violeta suave */
+  --accent-2: #4dd0ff;        /* cian brillante */
+  --border: #272a55;
+
+  /* Extras de la paleta azul */
+  --blue-deep: #0b1a3a;
+  --blue-electric: #2979ff;
+  --blue-cyan: #4dd0ff;
+  --blue-indigo: #1e1b4b;
+  --blue-ice: #8ecaff;
+  --blue-soft: #6ea5ff;
 }
+
+/* -------------------------------------------------- */
+/* Reset básico                                       */
+/* -------------------------------------------------- */
 
 * {
   box-sizing: border-box;
 }
 
-/* Fondo general */
 body {
   margin: 0;
   padding: 0;
   color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(123,92,255,.25) 0%, transparent 60%),
-    radial-gradient(1000px 500px at 110% 10%, rgba(77,208,255,.20) 0%, transparent 60%),
+    radial-gradient(1200px 600px at 12% -10%, rgba(41,121,255,0.35) 0%, transparent 60%),
+    radial-gradient(900px 500px at 98% 12%, rgba(77,208,255,0.30) 0%, transparent 70%),
     url("mujeralaguitarra.jpg") no-repeat center center / cover,
     var(--bg);
   background-attachment: fixed;
-  font-family: Inter, sans-serif;
 }
 
-/* ---------- Portadas tipo playlist ---------- */
+/* -------------------------------------------------- */
+/* Portadas tipo playlist                             */
+/* -------------------------------------------------- */
 
 .cover-wrapper {
   position: relative;
@@ -46,7 +64,7 @@ body {
 .cover-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(1, 4, 22, 0.9);
   color: #fff;
   padding: 20px;
   opacity: 0;
@@ -72,13 +90,15 @@ body {
   display: block;
 }
 
-/* ------------------------- Layout principal ------------------------- */
+/* -------------------------------------------------- */
+/* Layout general                                     */
+/* -------------------------------------------------- */
 
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
   width: 240px;
-  background: linear-gradient(180deg, #1a1a3a, #0a0a1a 80%);
+  background: linear-gradient(180deg, #171a3f, #050819 80%);
   border-right: 1px solid var(--border);
   padding: 18px;
 }
@@ -114,12 +134,13 @@ body {
   color: var(--text);
   text-decoration: none;
   border-radius: 8px;
-  transition: background .3s, color .3s;
+  transition: background .3s, color .3s, transform .15s;
 }
 
 .nav a:hover {
   background: rgba(123,92,255,.25);
   color: var(--accent-2);
+  transform: translateX(2px);
 }
 
 .viewport {
@@ -129,7 +150,9 @@ body {
   flex-direction: column;
 }
 
-/* --------------------------- Barra superior --------------------------- */
+/* -------------------------------------------------- */
+/* Topbar                                             */
+/* -------------------------------------------------- */
 
 .topbar {
   display: flex;
@@ -140,52 +163,43 @@ body {
   padding: 12px 20px;
 }
 
-.chevrons .chev {
-  background: #222255;
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 6px 10px;
-  cursor: pointer;
+.Nombre h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
-.search {
+/* -------------------------------------------------- */
+/* Contenido                                          */
+/* -------------------------------------------------- */
+
+.content {
+  padding: 24px 24px 80px;
   flex: 1;
 }
 
-.search input {
-  width: 100%;
-  background: #222255;
-  color: var(--text);
-  border: 1px solid var(--border);
-  padding: 10px 14px;
-  border-radius: 10px;
-  outline: none;
+.content > h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
-.search input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(123,92,255,.25);
-}
-
-.profile {
+.content > p {
+  text-align: center;
+  margin-top: 0;
   color: var(--muted);
 }
 
-/* --------------------------- Contenido --------------------------- */
-
-.content {
-  padding: 20px;
-  flex: 1;
-}
+/* Cards genéricos */
 
 .card {
   background: var(--panel-2);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 18px;
   margin: 18px 0;
-  box-shadow: 0 0 12px rgba(123,92,255,.15);
+  box-shadow: 0 0 18px rgba(41,121,255,.18);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -197,7 +211,7 @@ body {
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 18px 30px rgba(2,6,23,0.65);
 }
 
 .section-head {
@@ -206,27 +220,16 @@ body {
   justify-content: space-between;
 }
 
-.pill {
-  background: #1f1f4a;
-  color: var(--text);
-  border: 1px solid var(--border);
-  padding: 8px 12px;
-  border-radius: 999px;
-  text-decoration: none;
-}
-
-.pill:hover {
-  color: var(--accent-2);
-}
-
 .muted {
   color: var(--muted);
 }
 
-/* ------------------- Tabla de proyectos ------------------- */
+/* -------------------------------------------------- */
+/* Tabla de proyectos                                 */
+/* -------------------------------------------------- */
 
 .table-wrapper {
-  background: #101030;
+  background: #10102f;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: auto;
@@ -257,7 +260,7 @@ body {
   text-transform: uppercase;
   letter-spacing: .08em;
   color: #d8d8ff;
-  background: #141444;
+  background: #161744;
 }
 
 .projects-table tbody tr {
@@ -265,7 +268,7 @@ body {
 }
 
 .projects-table tbody tr:hover {
-  background: rgba(123,92,255,.15);
+  background: rgba(41,121,255,.20);
 }
 
 .projects-table a.play {
@@ -275,7 +278,7 @@ body {
   padding: 6px 12px;
   border-radius: 999px;
   text-decoration: none;
-  background: #1f1f4a;
+  background: #1b1f4f;
   border: 1px solid var(--border);
   color: var(--text);
 }
@@ -285,7 +288,9 @@ body {
   color: var(--accent-2);
 }
 
-/* ----------------------------- Formulario ----------------------------- */
+/* -------------------------------------------------- */
+/* Formularios                                        */
+/* -------------------------------------------------- */
 
 .contact-form {
   max-width: 720px;
@@ -298,14 +303,17 @@ body {
   margin-bottom: 14px;
 }
 
-.form-row label {
+.form-row label,
+.form-label {
   font-weight: 700;
-  color: #e7e7ff;
+  color: #f5f5ff;
+  letter-spacing: 0.2px;
 }
 
 .form-row input[type="text"],
-.form-row input[type="email"] {
-  background: #0d0d2a;
+.form-row input[type="email"],
+.form-control {
+  background: #0d102c;
   border: 1px solid var(--border);
   color: var(--text);
   padding: 12px 14px;
@@ -313,9 +321,10 @@ body {
   outline: none;
 }
 
-.form-row input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(123,92,255,.25);
+.form-row input:focus,
+.form-control:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(77,208,255,.35);
 }
 
 .checkbox-row {
@@ -324,87 +333,103 @@ body {
   gap: 10px;
 }
 
-.checkbox-row input {
-  accent-color: var(--accent);
+.checkbox-row input,
+.form-check-input {
+  accent-color: var(--accent-2);
 }
+
+.form-check-label {
+  color: var(--muted);
+}
+
+/* -------------------------------------------------- */
+/* Botones                                            */
+/* -------------------------------------------------- */
 
 .btn {
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
-  border: none;
-  padding: .85rem 1.1rem;
-  font-weight: 800;
+  font-weight: 700;
   border-radius: 999px;
+  padding: .8rem 1.2rem;
   cursor: pointer;
-  transition: filter .2s;
+  transition: transform .1s ease, box-shadow .2s ease, filter .15s ease;
 }
 
-.btn:hover {
-  filter: brightness(1.15);
+/* Botón principal: gradient azul eléctrico + cian */
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue-electric), var(--blue-cyan));
+  border: none;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(77,208,255,.45);
 }
 
-.btn:active {
+.btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 0 20px rgba(77,208,255,.7);
+}
+
+.btn-primary:active {
   transform: translateY(1px);
 }
 
-/* ------------------------ Footer estilo player ------------------------ */
+/* Botón info (por ejemplo collapse) */
+.btn-info {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #fff;
+}
+
+.btn-info:hover {
+  filter: brightness(1.08);
+}
+
+/* Botones outline adaptados a la paleta */
+.btn-outline-primary {
+  border-radius: 999px;
+  border: 1px solid var(--blue-soft);
+  color: var(--blue-ice);
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background: rgba(41,121,255,0.16);
+  color: #ffffff;
+}
+
+.btn-outline-secondary {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background: rgba(15,23,42,0.85);
+  color: #ffffff;
+}
+
+/* -------------------------------------------------- */
+/* Player / Footer                                    */
+/* -------------------------------------------------- */
 
 .player {
   position: sticky;
   bottom: 0;
-  background: #141433;
+  background: #10122f;
   border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
+  justify-content: center;
+  padding: 10px 20px;
 }
 
-.track-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.track {
+  margin: 0;
 }
 
-.thumb {
-  width: 44px;
-  height: 44px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #2a2a6b, #7b5cff55);
-  border: 1px solid var(--border);
-}
-
-.track { margin: 0; }
-.artist { margin: 0; }
-
-.controls button {
-  background: none;
-  border: none;
-  color: var(--text);
-  font-size: 1.1rem;
-  margin: 0 8px;
-  cursor: pointer;
-}
-
-.controls button:hover {
-  color: var(--accent-2);
-}
-
-/* Botones del player como navegación */
-
-.control-btn {
-  font-size: 1.4rem;
-  text-decoration: none;
-  color: var(--text);
-  transition: color 0.3s ease;
-}
-
-.control-btn:hover {
-  color: var(--accent-2);
-}
-
-/* === Formación & Certificaciones === */
+/* -------------------------------------------------- */
+/* Formación & certificaciones                        */
+/* -------------------------------------------------- */
 
 .cert-grid {
   display: grid;
@@ -418,7 +443,7 @@ body {
   border-radius: 12px;
   padding: 16px;
   text-align: center;
-  box-shadow: 0 0 10px rgba(123,92,255,.2);
+  box-shadow: 0 0 14px rgba(123,92,255,.25);
 }
 
 .cert-card img {
@@ -459,14 +484,16 @@ body {
   font-size: .9rem;
 }
 
-/* ---------- Extras de contacto / vídeo ---------- */
+/* -------------------------------------------------- */
+/* Bloque vídeo contacto                              */
+/* -------------------------------------------------- */
 
 .info-card {
   background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
   border-radius: 1rem;
 }
 
-/* Chevron del botón de collapse */
+/* Chevron del collapse */
 button[data-bs-toggle="collapse"] .chevron {
   transition: transform 0.25s ease;
   font-size: 0.9rem;
@@ -476,7 +503,16 @@ button[aria-expanded="true"] .chevron {
   transform: rotate(180deg);
 }
 
-/* Animación de entrada suave en algunas cards */
+/* Texto editable y bloques auxiliares */
+
+.alert[contenteditable="true"] {
+  cursor: text;
+}
+
+/* -------------------------------------------------- */
+/* Animaciones                                        */
+/* -------------------------------------------------- */
+
 .fade-in {
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
@@ -493,12 +529,15 @@ button[aria-expanded="true"] .chevron {
   }
 }
 
-/* ------------------------------ Responsive ------------------------------ */
+/* -------------------------------------------------- */
+/* Responsivo                                         */
+/* -------------------------------------------------- */
 
 @media (max-width: 860px) {
   .sidebar {
     width: 200px;
   }
+
   .viewport {
     margin-left: 200px;
   }
@@ -510,13 +549,183 @@ button[aria-expanded="true"] .chevron {
     width: auto;
     height: auto;
   }
+
   .viewport {
     margin-left: 0;
   }
+
   .topbar {
     flex-wrap: wrap;
   }
+
   .projects-table {
     min-width: 540px;
   }
+}
+.hero {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #1e3a8a, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* EL VÍDEO DEL DRAGÓN */
+.dragon-video {
+  position: absolute;
+  width: 260px;
+  animation: vueloDragon 4s ease-in-out forwards;
+  filter: drop-shadow(0 0 10px #60a5fa);
+}
+
+/* EL NOMBRE */
+.nombre {
+  position: relative;
+  font-size: 2.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e0ecff;
+  opacity: 0;
+  animation: apareceNombre 2s ease-out forwards;
+  animation-delay: 2.9s;
+  display: block;
+  margin-bottom: 20px;
+  margin-top:120px;
+}
+/* --- NAVBAR RECTANGULAR FUTURISTA AZUL --- */
+
+.navbar {
+  text-align: center;
+  min-width: 250px;
+  margin-top:90px;
+}
+
+.navbar ul {
+  display: inline-block;
+  background: #050d24;              /* antes #8ac926 */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;              /* si la quieres totalmente rectangular pon 0 */
+  border: 1px solid #101c3b;
+}
+
+.navbar li {
+  float: left;
+  position: relative;
+  width: auto;
+  display: inline;
+  margin: 0;
+}
+
+.navbar a {
+ background: #050d24;              /* mismo color que la barra */
+  color: #e5f0ff;
+  display: block;
+  font-family: "Syncopate", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+  border-left: 1px solid #101c3b;   /* separador entre opciones */
+}
+.navbar li:first-child a {
+  border-left: none;
+}
+/* Hover con efecto elegante futurista */
+.navbar li:hover a {
+  background: #0b2c75;              /* azul más claro al pasar el ratón */
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+
+.navbar li a:hover::after {
+  width: 100%;
+}
+/* Animación del trayecto */
+@keyframes vueloDragon {
+  0% {
+    transform: translateX(-140%) translateY(20px) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(-10%) translateY(-15px) scale(1.05);
+  }
+  70% {
+    transform: translateX(20%) translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(150%) translateY(10px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Aparición del nombre */
+@keyframes apareceNombre {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    text-shadow: 0 0 0 rgba(96, 165, 250, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.03);
+    text-shadow: 0 0 18px rgba(96, 165, 250, 0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.7);
+  }
+}
+/* El contenedor es un botón invisible */
+.sticker-img {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* La propia imagen es el sticker */
+.sticker-img img {
+  width: 130px;            /* ajusta tamaño según quieras */
+  height: auto;
+  background: none;
+  filter: drop-shadow(0 0 10px rgba(129, 140, 248, 0.6));
+  transition: transform .25s ease, filter .25s ease;
+}
+
+/* Hover: sticker flotante */
+.sticker-img:hover img {
+  transform: translateY(-6px) scale(1.05);
+  filter: drop-shadow(0 0 18px rgba(96, 165, 250, 0.9));
+}
+.stickers-sobre-mi h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.3rem;
+  letter-spacing: 0.05em;
+  color: #e0ecff;
+  margin-bottom: 40px;
+  text-transform: none; /* lo hace más natural y diferente al Hero */
 }

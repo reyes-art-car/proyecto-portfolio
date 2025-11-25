@@ -4,109 +4,145 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MRAC Portfolio</title>
-  
+  <!-- Fuente Syncopate desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!--Bootstrap CSS-->
   <link 
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
       rel="stylesheet">
+  <!-- Estilos propios -->
       <link rel="stylesheet" href="styles.css">
   <meta name="description" content="Portfolio con estética tipo TIDAL: sobre mí, proyectos y contacto.">
 </head>
 <body class="tidal-theme">
+  <!-- Hero con vídeo de dragón -->
+<header class="hero">
+    <video class="dragon-video"
+           src="video/dragon_azul.mp4"
+           autoplay muted playsinline></video>
 
-  <!-- Sidebar fija -->
-  <aside class="sidebar" role="navigation" aria-label="Navegación principal">
-    <div class="logo-float" title="MRAC">MRAC</div>
-    <nav class="nav">
+    <h1 class="nombre">REYES ARTACHO CARRERO</h1>
+    <p class="subtitulo">Estudiante de Desarrollo de Aplicaciones Web</p>
+    <nav class="navbar">
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="perfil.html">Sobre mí</a></li>
         <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="formacion.html">Formacion</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
-  </aside>
+  </header>
 
-  <div class="viewport">
-    <!-- Topbar -->
-    <header class="topbar" id="inicio" role="banner">
-      <div class="Nombre">
-        <h1>Maria Reyes Artacho Carrero</h1>
-      </div>
-    </header>
+   <section class="stickers-sobre-mi container my-5">
+  <h2 class="text-center mb-4">Un poco sobre mí</h2>
 
-    <main class="content" role="main">
-      <!-- Sobre mí -->
-      <main class="content" role="main">
-
-  <!-- Rejilla de portadas -->
-  <section class="cover-grid">
-    <!-- Sobre mí -->
-    <a href="sobre-mi.html" class="cover-card">
-      <div class="cover-wrapper">
-        <img src="covers/cover_sobre_mi.png" alt="Cover Sobre mí" class="cover-img">
-        <div class="cover-overlay">
-          <h2>Sobre mí</h2>
-        </div>
-      </div>
-    </a>
-
-    <!-- Proyectos -->
-    <a href="proyectos.html" class="cover-card">
-      <div class="cover-wrapper">
-        <img src="covers/cover_proyectos.png" alt="Cover Proyectos" class="cover-img">
-        <div class="cover-overlay">
-          <h2>Proyectos</h2>
-        </div>
-      </div>
-    </a>
-
-    <!-- Contacto -->
-    <a href="contacto.html" class="cover-card">
-      <div class="cover-wrapper">
-        <img src="covers/cover_contacto.png" alt="Cover Contacto" class="cover-img">
-        <div class="cover-overlay">
-          <h2>Contacto</h2>
-        </div>
-      </div>
-    </a>
-  </section>
-
-</main>
+  <div class="d-flex justify-content-center flex-wrap gap-4">
+    
+   <button type="button"
+        class="sticker-img"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Como una mariposa, trato con delicadeza cada proyecto, cuidando los detalles para que el resultado final sea hermoso y funcional.">
+    <img src="img/mariposa.png" alt="Mariposa azul">
+</button>
 
 
-      <!-- Proyectos como TABLA -->
-      
+    <!-- Sticker tortuga -->
+    <button type="button"
+            class="sticker-img"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Como una tortuga, avanzo con paciencia y perseverancia, asegurándome de construir una base sólida de conocimientos y habilidades en desarrollo web.">
+      <img src="img/tortuga.png" alt="Tortuga">
+    </button>
 
-      <!-- Contacto con checkbox -->
-     
+    <!-- Sticker jazmín -->
+    <button type="button"
+            class="sticker-img"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Como un jazmin, aporto frescura y creatividad a mis proyectos, buscando siempre nuevas ideas y enfoques innovadores para destacar en el mundo del desarrollo web.">
+      <img src="img/jazmin.png" alt="Jazmín">
+    </button>
+
+    <!-- Sticker metal líquido -->
+    <button type="button"
+            class="sticker-img"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="No se me puede olvidar el corazón o la parte humana del desarrollo web. Mi objetivo es aportar soluciones en proyectos que tengan impacto social y mejoren la vida de las personas.">
+      <img src="img/corazon.png" alt="Corazón">
+    </button>
+
+  </div>
+</section>
+
     </main>
 
-    <!-- Pie estilo player minimal -->
-<footer class="player" role="contentinfo">
-  <div class="track-info">
-    <div class="thumb" aria-hidden="true"></div>
-    <div>
-      <p class="track">MRAC Portfolio</p>
-      <p class="artist muted">© <span id="year"></span> · Todos los derechos reservados</p>
+   <footer class="portfolio-footer">
+  <div class="footer-inner">
+    
+    <div class="footer-brand">
+      <span class="footer-logo">MRAC</span>
+      <p class="footer-claim">
+        Proyecto realizado por Maria Reyes Artacho Carrero
+      </p>
     </div>
-  </div>
 
-  <!-- Controles como botones de navegación -->
-  <div class="controls">
-    <a href="index.html" class="control-btn" title="Inicio">⏮</a>
-    <a href="sobre-mi.html" class="control-btn" title="Sobre mí">▶</a>
-    <a href="proyectos.html" class="control-btn" title="Proyectos">⏭</a>
-    <a href="contacto.html" class="control-btn" title="Contacto">🎵</a>
-  </div>
+    <nav class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="perfil.html">Sobre mí</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="formacion.html">Formación</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
 
-  <div class="extras">
-    <span>🔊</span>
+    <div class="footer-meta">
+      <p>© <span id="year"></span> · MRAC Portfolio</p>
+      <div class="footer-social">
+        <a href="https://github.com/reyes-art-car" target="_blank" rel="noopener">GitHub</a>
+        <span class="dot">·</span>
+        <a href="mailto:mariareyesartcar@gmail.com">Email</a>
+      </div>
+    </div>
+
   </div>
 </footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  const hero = document.querySelector('.hero');
+  const dragon = document.querySelector('.dragon-video'); // <- aquí
+  const nombre = document.querySelector('.nombre');
+
+  function restartAnimation() {
+    dragon.style.animation = 'none';
+    nombre.style.animation = 'none';
+
+    void dragon.offsetWidth;
+
+    dragon.style.animation = 'vueloDragon 4s ease-in-out forwards';
+    nombre.style.animation = 'apareceNombre 2s ease-out forwards';
+    nombre.style.animationDelay = '2.8s';
+  }
+
+  hero.addEventListener('click', restartAnimation);
+</script>
+
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  const tooltipList = [...tooltipTriggerList].map(
+    tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)
+  );
+</script>
+
 </body>
 </html>
