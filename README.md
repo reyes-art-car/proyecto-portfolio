@@ -8,7 +8,7 @@ Este repositorio contiene el desarrollo de mi portafolio personal, una plataform
 - CSS3  
 - JavaScript  
 - Bootstrap 5  
-- Figma para diseño y prototipado
+- Figma para diseño y prototipado. https://www.figma.com/design/vLZzFhjZV94xz32XKCNx1Q/Proyecto-Portfolio?node-id=0-1&t=Fm1nv8izbiaZsjhK-1
 
 ## Estructura del proyecto
 
