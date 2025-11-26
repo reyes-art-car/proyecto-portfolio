@@ -27,18 +27,38 @@
 
     <h1 class="nombre">REYES ARTACHO CARRERO</h1>
     <p class="subtitulo">Estudiante de Desarrollo de Aplicaciones Web</p>
-    <nav class="navbar">
-      <ul>
-        <li><a href="perfil.html">Sobre mí</a></li>
-        <li><a href="proyectos.html">Proyectos</a></li>
-        <li><a href="formacion.html">Formacion</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+    
+  <nav class="navbar navbar-expand-md navbar-dark custom-navbar mx-auto">
+    <div class="container-fluid justify-content-center">
+
+      <!-- Botón hamburguesa -->
+      <button class="navbar-toggler" type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#mainNavbar" 
+              aria-controls="mainNavbar" 
+              aria-expanded="false" 
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Contenido del menú -->
+      <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+        <ul class="navbar-nav custom-nav-ul">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="perfil.html">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="formacion.html">Formación</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
   </header>
 
    <section class="stickers-sobre-mi container my-5">
   <h2 class="text-center mb-4">Un poco sobre mí</h2>
+  <p class="text-center">Pasa el ratón por encima de cada imagen para saber más sobre mí.</p>
 
   <div class="d-flex justify-content-center flex-wrap gap-4">
     
@@ -78,6 +98,30 @@
       <img src="img/corazon.png" alt="Corazón">
     </button>
 
+  </div>
+</section>
+<!-- Card Currículum en el index -->
+<section class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      
+      <article class="card-mrac cv-card">
+        <h2 class="section-title">Currículum</h2>
+
+        <p>
+          Si quieres ver con más detalle mi formación, experiencia previa y habilidades técnicas, 
+          puedes consultar mi currículum completo en formato PDF.
+        </p>
+
+        <a href="docs/CV-MariaReyesArtacho.pdf"
+           class="btn btn-cv mt-3"
+           target="_blank"
+           rel="noopener">
+          Ver currículum (PDF)
+        </a>
+      </article>
+
+    </div>
   </div>
 </section>
 
