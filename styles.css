@@ -1,0 +1,731 @@
+:root {
+  /* Fondo y paneles */
+  --bg: #050819;              /* azul casi negro */
+  --panel: #111433;           /* panel principal */
+  --panel-2: #181a3f;         /* panel secundario */
+
+  /* Texto */
+  --text: #f5f5ff;
+  --muted: #b7c1e6;
+
+  /* Acentos principales (moodboard) */
+  --accent: #7b5cff;          /* violeta suave */
+  --accent-2: #4dd0ff;        /* cian brillante */
+  --border: #272a55;
+
+  /* Extras de la paleta azul */
+  --blue-deep: #0b1a3a;
+  --blue-electric: #2979ff;
+  --blue-cyan: #4dd0ff;
+  --blue-indigo: #1e1b4b;
+  --blue-ice: #8ecaff;
+  --blue-soft: #6ea5ff;
+}
+
+/* -------------------------------------------------- */
+/* Reset básico                                       */
+/* -------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 12% -10%, rgba(41,121,255,0.35) 0%, transparent 60%),
+    radial-gradient(900px 500px at 98% 12%, rgba(77,208,255,0.30) 0%, transparent 70%),
+    url("mujeralaguitarra.jpg") no-repeat center center / cover,
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* -------------------------------------------------- */
+/* Portadas tipo playlist                             */
+/* -------------------------------------------------- */
+
+.cover-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(1, 4, 22, 0.9);
+  color: #fff;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity .3s ease;
+  overflow-y: auto;
+  border-radius: 12px;
+}
+
+.cover-wrapper:hover .cover-overlay {
+  opacity: 1;
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.cover-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* -------------------------------------------------- */
+/* Layout general                                     */
+/* -------------------------------------------------- */
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 240px;
+  background: linear-gradient(180deg, #171a3f, #050819 80%);
+  border-right: 1px solid var(--border);
+  padding: 18px;
+}
+
+.logo-float {
+  float: left;
+  padding: .6rem .9rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 800;
+  border: 1px solid rgba(255,255,255,.1);
+  margin-bottom: 16px;
+}
+
+.nav {
+  clear: both;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.nav li {
+  margin: 10px 0;
+}
+
+.nav a {
+  display: block;
+  padding: 10px 12px;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background .3s, color .3s, transform .15s;
+}
+
+.nav a:hover {
+  background: rgba(123,92,255,.25);
+  color: var(--accent-2);
+  transform: translateX(2px);
+}
+
+.viewport {
+  margin-left: 240px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------------------------------------------- */
+/* Topbar                                             */
+/* -------------------------------------------------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+}
+
+.Nombre h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* -------------------------------------------------- */
+/* Contenido                                          */
+/* -------------------------------------------------- */
+
+.content {
+  padding: 24px 24px 80px;
+  flex: 1;
+}
+
+.content > h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.content > p {
+  text-align: center;
+  margin-top: 0;
+  color: var(--muted);
+}
+
+/* Cards genéricos */
+
+.card {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  margin: 18px 0;
+  box-shadow: 0 0 18px rgba(41,121,255,.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px rgba(2,6,23,0.65);
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* -------------------------------------------------- */
+/* Tabla de proyectos                                 */
+/* -------------------------------------------------- */
+
+.table-wrapper {
+  background: #10102f;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 660px;
+}
+
+.projects-table caption {
+  text-align: left;
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.projects-table th,
+.projects-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.projects-table thead th {
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #d8d8ff;
+  background: #161744;
+}
+
+.projects-table tbody tr {
+  transition: background .2s ease;
+}
+
+.projects-table tbody tr:hover {
+  background: rgba(41,121,255,.20);
+}
+
+.projects-table a.play {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: #1b1f4f;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.projects-table a.play::before {
+  content: "▶";
+  color: var(--accent-2);
+}
+
+/* -------------------------------------------------- */
+/* Formularios                                        */
+/* -------------------------------------------------- */
+
+.contact-form {
+  max-width: 720px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.form-row label,
+.form-label {
+  font-weight: 700;
+  color: #f5f5ff;
+  letter-spacing: 0.2px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-control {
+  background: #0d102c;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.form-row input:focus,
+.form-control:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(77,208,255,.35);
+}
+
+.checkbox-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-row input,
+.form-check-input {
+  accent-color: var(--accent-2);
+}
+
+.form-check-label {
+  color: var(--muted);
+}
+
+/* -------------------------------------------------- */
+/* Botones                                            */
+/* -------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: .8rem 1.2rem;
+  cursor: pointer;
+  transition: transform .1s ease, box-shadow .2s ease, filter .15s ease;
+}
+
+/* Botón principal: gradient azul eléctrico + cian */
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue-electric), var(--blue-cyan));
+  border: none;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(77,208,255,.45);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 0 20px rgba(77,208,255,.7);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* Botón info (por ejemplo collapse) */
+.btn-info {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #fff;
+}
+
+.btn-info:hover {
+  filter: brightness(1.08);
+}
+
+/* Botones outline adaptados a la paleta */
+.btn-outline-primary {
+  border-radius: 999px;
+  border: 1px solid var(--blue-soft);
+  color: var(--blue-ice);
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background: rgba(41,121,255,0.16);
+  color: #ffffff;
+}
+
+.btn-outline-secondary {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background: rgba(15,23,42,0.85);
+  color: #ffffff;
+}
+
+/* -------------------------------------------------- */
+/* Player / Footer                                    */
+/* -------------------------------------------------- */
+
+.player {
+  position: sticky;
+  bottom: 0;
+  background: #10122f;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.track {
+  margin: 0;
+}
+
+/* -------------------------------------------------- */
+/* Formación & certificaciones                        */
+/* -------------------------------------------------- */
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.cert-card {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 0 14px rgba(123,92,255,.25);
+}
+
+.cert-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.cert-card h3 {
+  margin: 6px 0 4px;
+  color: var(--accent-2);
+  font-size: 1rem;
+}
+
+/* Tech stack pills */
+
+.tech-stack {
+  margin-top: 24px;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tech-list li {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+/* -------------------------------------------------- */
+/* Bloque vídeo contacto                              */
+/* -------------------------------------------------- */
+
+.info-card {
+  background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+  border-radius: 1rem;
+}
+
+/* Chevron del collapse */
+button[data-bs-toggle="collapse"] .chevron {
+  transition: transform 0.25s ease;
+  font-size: 0.9rem;
+}
+
+button[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+/* Texto editable y bloques auxiliares */
+
+.alert[contenteditable="true"] {
+  cursor: text;
+}
+
+/* -------------------------------------------------- */
+/* Animaciones                                        */
+/* -------------------------------------------------- */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------------------------------------------------- */
+/* Responsivo                                         */
+/* -------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .viewport {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 680px) {
+  .sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .viewport {
+    margin-left: 0;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .projects-table {
+    min-width: 540px;
+  }
+}
+.hero {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #1e3a8a, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* EL VÍDEO DEL DRAGÓN */
+.dragon-video {
+  position: absolute;
+  width: 260px;
+  animation: vueloDragon 4s ease-in-out forwards;
+  filter: drop-shadow(0 0 10px #60a5fa);
+}
+
+/* EL NOMBRE */
+.nombre {
+  position: relative;
+  font-size: 2.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e0ecff;
+  opacity: 0;
+  animation: apareceNombre 2s ease-out forwards;
+  animation-delay: 2.9s;
+  display: block;
+  margin-bottom: 20px;
+  margin-top:120px;
+}
+/* --- NAVBAR RECTANGULAR FUTURISTA AZUL --- */
+
+.navbar {
+  text-align: center;
+  min-width: 250px;
+  margin-top:90px;
+}
+
+.navbar ul {
+  display: inline-block;
+  background: #050d24;              /* antes #8ac926 */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;              /* si la quieres totalmente rectangular pon 0 */
+  border: 1px solid #101c3b;
+}
+
+.navbar li {
+  float: left;
+  position: relative;
+  width: auto;
+  display: inline;
+  margin: 0;
+}
+
+.navbar a {
+ background: #050d24;              /* mismo color que la barra */
+  color: #e5f0ff;
+  display: block;
+  font-family: "Syncopate", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+  border-left: 1px solid #101c3b;   /* separador entre opciones */
+}
+.navbar li:first-child a {
+  border-left: none;
+}
+/* Hover con efecto elegante futurista */
+.navbar li:hover a {
+  background: #0b2c75;              /* azul más claro al pasar el ratón */
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+
+.navbar li a:hover::after {
+  width: 100%;
+}
+/* Animación del trayecto */
+@keyframes vueloDragon {
+  0% {
+    transform: translateX(-140%) translateY(20px) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(-10%) translateY(-15px) scale(1.05);
+  }
+  70% {
+    transform: translateX(20%) translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(150%) translateY(10px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Aparición del nombre */
+@keyframes apareceNombre {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    text-shadow: 0 0 0 rgba(96, 165, 250, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.03);
+    text-shadow: 0 0 18px rgba(96, 165, 250, 0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.7);
+  }
+}
+/* El contenedor es un botón invisible */
+.sticker-img {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* La propia imagen es el sticker */
+.sticker-img img {
+  width: 130px;            /* ajusta tamaño según quieras */
+  height: auto;
+  background: none;
+  filter: drop-shadow(0 0 10px rgba(129, 140, 248, 0.6));
+  transition: transform .25s ease, filter .25s ease;
+}
+
+/* Hover: sticker flotante */
+.sticker-img:hover img {
+  transform: translateY(-6px) scale(1.05);
+  filter: drop-shadow(0 0 18px rgba(96, 165, 250, 0.9));
+}
+.stickers-sobre-mi h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.3rem;
+  letter-spacing: 0.05em;
+  color: #e0ecff;
+  margin-bottom: 40px;
+  text-transform: none; /* lo hace más natural y diferente al Hero */
+}

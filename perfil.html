@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MRAC Portfolio</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Portfolio con estética tipo TIDAL: sobre mí, proyectos y contacto.">
+</head>
+
+<body class="tidal-theme">
+  <!-- Sidebar fija -->
+  <aside class="sidebar" role="navigation" aria-label="Navegación principal">
+    <div class="logo-float" title="MRAC">MRAC</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="perfil.html">Sobre mí</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="formacion.html">Formación</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="viewport">
+    <!-- Topbar -->
+    <header class="topbar" id="inicio" role="banner">
+      <div class="Nombre">
+        <h1>Maria Reyes Artacho Carrero</h1>
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="content" role="main">
+      <div class="card glassy">
+        <!-- Rejilla de portadas -->
+        <section class="cover-grid" aria-label="Secciones principales del portfolio">
+
+          <!-- Sobre mí -->
+          <a href="sobre-mi.html" class="cover-card">
+            <div class="cover-wrapper">
+              <img src="covers/cover_sobre_mi.png" alt="Acceso a la sección Sobre mí" class="cover-img">
+              <div class="cover-overlay">
+                <h2>Sobre mí</h2>
+              </div>
+            </div>
+          </a>
+
+          <!-- Proyectos -->
+          <a href="proyectos.html" class="cover-card">
+            <div class="cover-wrapper">
+              <img src="covers/cover_proyectos.png" alt="Acceso a la sección Proyectos" class="cover-img">
+              <div class="cover-overlay">
+                <h2>Proyectos</h2>
+              </div>
+            </div>
+          </a>
+
+          <!-- Contacto -->
+          <a href="contacto.html" class="cover-card">
+            <div class="cover-wrapper">
+              <img src="covers/cover_contacto.png" alt="Acceso a la sección Contacto" class="cover-img">
+              <div class="cover-overlay">
+                <h2>Contacto</h2>
+              </div>
+            </div>
+          </a>
+
+          <!-- Formación -->
+          <a href="formacion.html" class="cover-card">
+            <div class="cover-wrapper">
+              <img src="covers/cover_formacion.jpg" alt="Acceso a la sección Formación" class="cover-img">
+              <div class="cover-overlay">
+                <h2>Formación</h2>
+              </div>
+            </div>
+          </a>
+
+        </section>
+      </div>
+    </main>
+
+   <footer class="portfolio-footer">
+  <div class="footer-inner">
+    
+    <div class="footer-brand">
+      <span class="footer-logo">MRAC</span>
+      <p class="footer-claim">
+        Proyecto realizado por Maria Reyes Artacho Carrero
+      </p>
+    </div>
+
+    <nav class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="perfil.html">Sobre mí</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="formacion.html">Formación</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="footer-meta">
+      <p>© <span id="year"></span> · MRAC Portfolio</p>
+      <div class="footer-social">
+        <a href="https://github.com/reyes-art-car" target="_blank" rel="noopener">GitHub</a>
+        <span class="dot">·</span>
+        <a href="mailto:mariareyesartcar@gmail.com">Email</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
